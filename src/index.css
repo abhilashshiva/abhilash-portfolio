@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --text-primary: #F5F3EE;
+    --text-secondary: #999999;
+    --accent: #C9EDB9;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  html.light {
+    --bg: #F3F0E9;
+    --surface: #FFFFFF;
+    --text-primary: #121212;
+    --text-secondary: #63625E;
+    --accent: #96D280;
+    --border: rgba(0, 0, 0, 0.08);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.4);
+}
+
+/* Atmospheric Noise / Glow Overlays */
+.atmospheric-bg {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(201, 237, 185, 0.035) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(255, 255, 255, 0.015) 0%, transparent 40%);
+}
+
+.light .atmospheric-bg {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(150, 210, 128, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(0, 0, 0, 0.02) 0%, transparent 40%);
+}
+
+/* Glass Pill Effect */
+.glass-pill {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
