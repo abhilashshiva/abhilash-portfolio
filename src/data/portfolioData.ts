@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   phone: "+91 9030422529",
   resumePath: "/resume.pdf",
   socials: {
-    github: "https://github.com",
+    github: "https://github.com/abhilashshiva",
     linkedin: "https://linkedin.com",
     email: "mailto:abhilashshiva.b@gmail.com"
   },

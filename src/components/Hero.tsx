@@ -34,12 +34,13 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Oversized Editorial Serif Headline */}
-        <div className="max-w-5xl mb-8">
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] font-light text-neutral-900 dark:text-[#F5F3EE]">
-            Engineering intelligent systems from complex{' '}
-            <span className="text-sky-400 dark:text-sky-400 font-normal">DATA</span>{' '}
-            <span className="text-neutral-400 dark:text-neutral-500 font-normal">to</span>{' '}
-            <span className="text-sky-400 dark:text-sky-400 font-normal">production AI.</span>
+        <div className="max-w-4xl mb-8">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] tracking-tight leading-[1.14] font-light text-neutral-900 dark:text-[#F5F3EE]">
+            Engineering intelligent systems <br className="hidden sm:inline" />
+            <span className="text-neutral-500 dark:text-neutral-400">from complex </span>
+            <span className="text-emerald-700 dark:text-accent font-normal italic">data</span>{' '}
+            <span className="text-neutral-500 dark:text-neutral-400">to </span>
+            <span className="text-emerald-700 dark:text-accent font-normal italic">production AI & automation.</span>
           </h1>
         </div>
 
