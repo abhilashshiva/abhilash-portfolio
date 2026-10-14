@@ -41,24 +41,28 @@ export const Contact: React.FC = () => {
     setStatusMessage('');
 
     try {
-      // Connect to Formspree endpoint or fallback to mailto
-      // We will attempt a standard Formspree endpoint or create mailto fallback
-      const response = await fetch('https://formspree.io/f/mqaebrql', {
+      const response = await fetch('https://formsubmit.co/ajax/abhilashshiva.b@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Message from ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
       });
 
       if (response.ok) {
         setStatus('success');
-        setStatusMessage('Your message was received successfully. I will get back to you shortly.');
+        setStatusMessage('Your message was transmitted successfully. Thank you for reaching out!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        // Fallback or explicit notification
-        throw new Error('Form service unavailable');
+        throw new Error('Service unavailable');
       }
     } catch (err) {
       // Graceful fallback with direct mailto option
