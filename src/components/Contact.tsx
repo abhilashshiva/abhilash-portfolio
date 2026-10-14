@@ -41,7 +41,7 @@ export const Contact: React.FC = () => {
     setStatusMessage('');
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/abhilashshiva.b@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/1f0a1f613b4effb1cd6c01d7de3b2ab9', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,18 +51,20 @@ export const Contact: React.FC = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `Portfolio Message from ${formData.name}`,
+          _subject: `Portfolio Inquiry from ${formData.name}`,
           _template: 'table',
           _captcha: 'false',
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && (result.success === 'true' || result.success === true || response.status === 200)) {
         setStatus('success');
         setStatusMessage('Your message was transmitted successfully. Thank you for reaching out!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error('Service unavailable');
+        throw new Error(result.message || 'Service unavailable');
       }
     } catch (err) {
       // Graceful fallback with direct mailto option
