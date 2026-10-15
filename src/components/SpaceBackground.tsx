@@ -262,26 +262,7 @@ export const SpaceBackground: React.FC = () => {
           }}
         />
 
-        {/* --- COMPACT CRESCENT PLANET IN LOWER-LEFT CORNER --- */}
-        <div 
-          className="absolute -bottom-14 -left-14 sm:-bottom-18 sm:-left-18 w-[160px] h-[160px] sm:w-[210px] sm:h-[210px] pointer-events-none"
-        >
-          <div 
-            className="relative w-full h-full rounded-full overflow-hidden shadow-xl"
-            style={{
-              background: 'radial-gradient(circle at 75% 25%, #181920 0%, #0E0F14 45%, #050508 85%)',
-              boxShadow: 'inset -8px -8px 24px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 0, 0, 0.9)',
-            }}
-          >
-            {/* Luminous Atmospheric Crescent Rim Glow */}
-            <div 
-              className="absolute inset-0 rounded-full"
-              style={{
-                boxShadow: 'inset 3px 4px 12px rgba(255, 255, 255, 0.75), inset 8px 12px 28px rgba(254, 240, 138, 0.22), 0 0 25px rgba(255, 255, 255, 0.12)',
-              }}
-            />
-          </div>
-        </div>
+
 
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { ArrowRight, Download, Mail, Sparkles, Terminal } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { CosmicQuasar } from './CosmicQuasar';
+import { HeroConsole } from './HeroConsole';
 
 export const Hero: React.FC = () => {
   return (
@@ -110,11 +110,9 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Cosmic Singularity & Quasar (Cropped, extending towards right screen edge) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-2 lg:pt-0 relative">
-            <div className="w-full lg:w-[46vw] lg:max-w-[660px] lg:translate-x-8 xl:translate-x-14 pointer-events-auto">
-              <CosmicQuasar />
-            </div>
+          {/* Right Column: Interactive Systems Terminal Console */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-6 lg:pt-0">
+            <HeroConsole />
           </div>
         </div>
 
