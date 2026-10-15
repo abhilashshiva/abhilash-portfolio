@@ -110,9 +110,11 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Singularity Black Hole */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-4 lg:pt-0">
-            <BlackHole />
+          {/* Right Column: Interactive Singularity Black Hole (Cropped, extending towards right screen edge) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-2 lg:pt-0 relative">
+            <div className="w-full lg:w-[46vw] lg:max-w-[680px] lg:translate-x-8 xl:translate-x-16 pointer-events-auto">
+              <BlackHole />
+            </div>
           </div>
         </div>
 
