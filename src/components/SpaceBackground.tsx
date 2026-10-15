@@ -60,20 +60,20 @@ export const SpaceBackground: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Decreased star count: clean, serene deep space (few, tasteful pinpricks)
+    // Tasteful, clean starfield count
     let stars: Star[] = [];
     const initStars = () => {
       stars = [];
-      const count = Math.max(40, Math.floor((width * height) / 28000));
+      const count = Math.max(45, Math.floor((width * height) / 26000));
       for (let i = 0; i < count; i++) {
-        const baseAlpha = 0.25 + Math.random() * 0.55;
+        const baseAlpha = 0.3 + Math.random() * 0.55;
         stars.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          size: Math.random() < 0.9 ? 0.7 + Math.random() * 0.7 : 1.6 + Math.random() * 0.6,
+          size: Math.random() < 0.88 ? 0.8 + Math.random() * 0.6 : 1.7 + Math.random() * 0.5,
           baseAlpha,
           alpha: baseAlpha,
-          twinkleSpeed: 0.006 + Math.random() * 0.018,
+          twinkleSpeed: 0.007 + Math.random() * 0.018,
           phase: Math.random() * Math.PI * 2,
           vx: (Math.random() - 0.5) * 0.05,
           vy: (Math.random() - 0.5) * 0.05,
@@ -102,19 +102,19 @@ export const SpaceBackground: React.FC = () => {
         const now = Date.now();
         const mouse = mouseRef.current;
 
-        // 1. Interactive Constellation Lines (Clean & minimal: only near mouse or very close stars)
+        // 1. Interactive Constellation Lines (Only near mouse or very close stars for a clean look)
         for (let i = 0; i < stars.length; i++) {
           const s1 = stars[i];
 
-          // Faint natural constellation pairs (only if very close)
+          // Faint natural constellation pairs
           for (let j = i + 1; j < stars.length; j++) {
             const s2 = stars[j];
             const dx = s1.x - s2.x;
             const dy = s1.y - s2.y;
             const dist = Math.hypot(dx, dy);
 
-            if (dist < 65) {
-              const lineAlpha = (1 - dist / 65) * 0.05 * Math.min(s1.alpha, s2.alpha);
+            if (dist < 60) {
+              const lineAlpha = (1 - dist / 60) * 0.05 * Math.min(s1.alpha, s2.alpha);
               ctx.strokeStyle = `rgba(245, 243, 238, ${lineAlpha})`;
               ctx.lineWidth = 0.6;
               ctx.beginPath();
@@ -165,14 +165,14 @@ export const SpaceBackground: React.FC = () => {
           // Star Core (crisp ivory/white)
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.15, Math.min(1, s.alpha))})`;
+          ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.18, Math.min(1, s.alpha))})`;
           ctx.fill();
 
-          // Subtle warm glow for the few larger stars
+          // Subtle warm glow for brighter stars
           if (s.size > 1.5) {
             ctx.beginPath();
             ctx.arc(s.x, s.y, s.size * 2.2, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(254, 240, 138, ${s.alpha * 0.18})`;
+            ctx.fillStyle = `rgba(254, 240, 138, ${s.alpha * 0.2})`;
             ctx.fill();
           }
         }
@@ -182,7 +182,7 @@ export const SpaceBackground: React.FC = () => {
           shootingStar = {
             x: Math.random() * (width * 0.75),
             y: Math.random() * (height * 0.35),
-            len: 80 + Math.random() * 60,
+            len: 85 + Math.random() * 60,
             speed: 14 + Math.random() * 6,
             angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2,
             opacity: 0.85,
@@ -243,30 +243,29 @@ export const SpaceBackground: React.FC = () => {
         className="absolute inset-0 w-full h-full"
       />
 
-      {/* Atmospheric Space Elements (Strictly Pure Cosmic Black & White-Gold / Warm Ivory - NO BLUE) */}
+      {/* Atmospheric Space Elements (Strictly Cosmic Black, White-Gold, Warm Ivory - NO BLUE) */}
       <div className="absolute inset-0 pointer-events-none">
         
-        {/* Visible Galaxy Nebula Dust Cloud (Upper-Right behind Hero Black Hole) */}
+        {/* Soft Cosmic Nebula Dust Cloud (Upper-Right) */}
         <div 
           className="absolute -top-32 right-[-5%] w-[750px] h-[600px] rounded-full blur-[110px]"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(254, 240, 138, 0.035) 0%, rgba(245, 243, 238, 0.02) 40%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(254, 240, 138, 0.04) 0%, rgba(245, 243, 238, 0.02) 40%, transparent 70%)',
           }}
         />
 
-        {/* Faint Nebula Dust (Mid-Left behind Headline) */}
+        {/* Faint Nebula Filament (Mid-Left) */}
         <div 
-          className="absolute top-[28%] -left-32 w-[650px] h-[500px] rounded-full blur-[120px]"
+          className="absolute top-[32%] -left-32 w-[650px] h-[500px] rounded-full blur-[120px]"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(245, 243, 238, 0.025) 0%, rgba(254, 240, 138, 0.015) 45%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(245, 243, 238, 0.03) 0%, rgba(254, 240, 138, 0.02) 45%, transparent 70%)',
           }}
         />
 
-        {/* --- DECREASED CRESCENT PLANET IN LOWER-LEFT CORNER (Subtle & Compact) --- */}
+        {/* --- COMPACT CRESCENT PLANET IN LOWER-LEFT CORNER --- */}
         <div 
           className="absolute -bottom-14 -left-14 sm:-bottom-18 sm:-left-18 w-[160px] h-[160px] sm:w-[210px] sm:h-[210px] pointer-events-none"
         >
-          {/* Planet Spherical Body */}
           <div 
             className="relative w-full h-full rounded-full overflow-hidden shadow-xl"
             style={{
@@ -281,144 +280,181 @@ export const SpaceBackground: React.FC = () => {
                 boxShadow: 'inset 3px 4px 12px rgba(255, 255, 255, 0.75), inset 8px 12px 28px rgba(254, 240, 138, 0.22), 0 0 25px rgba(255, 255, 255, 0.12)',
               }}
             />
-
-            {/* Subtle Surface Texture */}
-            <div 
-              className="absolute inset-0 opacity-25 mix-blend-overlay"
-              style={{
-                backgroundImage: 'radial-gradient(circle at 65% 35%, rgba(255,255,255,0.4) 0%, transparent 40%)',
-              }}
-            />
           </div>
-
-          {/* Exterior Atmospheric Haze */}
-          <div 
-            className="absolute -inset-3 rounded-full blur-md pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 55%)',
-            }}
-          />
         </div>
 
-        {/* --- MINIATURE DEEP-SPACE GALAXIES (Authentic Small Cosmic Objects) --- */}
-        
-        {/* Galaxy 1: Grand Spiral Galaxy (Upper Left) */}
+        {/* ========================================================================= */}
+        {/* --- PROMINENT, CLEARLY VISIBLE DEEP-SPACE GALAXIES (Authentic Astronomy) --- */}
+        {/* ========================================================================= */}
+
+        {/* Galaxy 1: Grand Design Spiral Galaxy (Upper-Left near Hero) */}
         <div 
-          className="absolute top-[20%] left-[9%] pointer-events-none opacity-35 select-none"
-          title="Distant Spiral Galaxy"
+          className="absolute top-[14%] left-[5%] pointer-events-none select-none z-0"
+          style={{ filter: 'drop-shadow(0 0 16px rgba(254, 240, 138, 0.35))' }}
         >
-          <svg viewBox="0 0 80 48" className="w-8 h-5 sm:w-9 sm:h-[22px] -rotate-25 filter blur-[0.3px]">
+          <svg viewBox="0 0 160 100" className="w-28 sm:w-36 h-18 sm:h-24 -rotate-15 opacity-80 sm:opacity-85 transition-opacity hover:opacity-100">
             <defs>
-              <radialGradient id="gal1-core" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
-                <stop offset="30%" stopColor="#FEF08A" stopOpacity="0.55" />
-                <stop offset="70%" stopColor="#E2E8F0" stopOpacity="0.18" />
+              <radialGradient id="g1-core-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                <stop offset="25%" stopColor="#FFF7ED" stopOpacity="0.85" />
+                <stop offset="50%" stopColor="#FEF08A" stopOpacity="0.55" />
+                <stop offset="80%" stopColor="#C9EDB9" stopOpacity="0.15" />
                 <stop offset="100%" stopColor="#050508" stopOpacity="0" />
               </radialGradient>
-              <radialGradient id="gal1-arms" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.35" />
-                <stop offset="50%" stopColor="#FEF08A" stopOpacity="0.12" />
+              <radialGradient id="g1-disc-halo" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.35" />
+                <stop offset="45%" stopColor="#F5F3EE" stopOpacity="0.18" />
+                <stop offset="75%" stopColor="#C9EDB9" stopOpacity="0.08" />
                 <stop offset="100%" stopColor="#050508" stopOpacity="0" />
               </radialGradient>
             </defs>
-            {/* Diffuse Galactic Disc */}
-            <ellipse cx="40" cy="24" rx="36" ry="14" fill="url(#gal1-arms)" />
-            {/* Spiral Arm 1 */}
-            <path d="M 40 24 Q 56 16 66 22 Q 72 28 64 34 Q 52 35 40 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" />
-            {/* Spiral Arm 2 */}
-            <path d="M 40 24 Q 24 32 14 26 Q 8 20 16 14 Q 28 13 40 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" />
-            {/* Luminous Core */}
-            <ellipse cx="40" cy="24" rx="11" ry="7" fill="url(#gal1-core)" />
-            <circle cx="40" cy="24" r="2.2" fill="#FFFFFF" />
+
+            {/* Glowing Diffuse Disc */}
+            <ellipse cx="80" cy="50" rx="72" ry="34" fill="url(#g1-disc-halo)" />
+
+            {/* Main Spiral Arm 1 */}
+            <path 
+              d="M 80 50 Q 110 32 128 42 Q 144 54 134 70 Q 118 80 94 72 Q 72 65 80 50" 
+              fill="none" 
+              stroke="rgba(255, 255, 255, 0.65)" 
+              strokeWidth="2.8" 
+              strokeLinecap="round"
+            />
+            <path 
+              d="M 80 50 Q 116 36 138 50 Q 152 64 136 78" 
+              fill="none" 
+              stroke="rgba(254, 240, 138, 0.5)" 
+              strokeWidth="1.8" 
+            />
+
+            {/* Main Spiral Arm 2 */}
+            <path 
+              d="M 80 50 Q 50 68 32 58 Q 16 46 26 30 Q 42 20 66 28 Q 88 35 80 50" 
+              fill="none" 
+              stroke="rgba(255, 255, 255, 0.65)" 
+              strokeWidth="2.8" 
+              strokeLinecap="round"
+            />
+            <path 
+              d="M 80 50 Q 44 64 22 50 Q 8 36 24 22" 
+              fill="none" 
+              stroke="rgba(254, 240, 138, 0.5)" 
+              strokeWidth="1.8" 
+            />
+
+            {/* Luminous Starburst Clusters along the arms */}
+            <circle cx="124" cy="40" r="1.8" fill="#FFFFFF" opacity="0.95" />
+            <circle cx="138" cy="54" r="1.4" fill="#FEF08A" opacity="0.9" />
+            <circle cx="112" cy="74" r="1.6" fill="#FFFFFF" opacity="0.9" />
+            <circle cx="36" cy="60" r="1.8" fill="#FFFFFF" opacity="0.95" />
+            <circle cx="22" cy="46" r="1.4" fill="#FEF08A" opacity="0.9" />
+            <circle cx="48" cy="24" r="1.6" fill="#FFFFFF" opacity="0.9" />
+
+            {/* Brilliant Galactic Nucleus */}
+            <ellipse cx="80" cy="50" rx="24" ry="15" fill="url(#g1-core-glow)" />
+            <ellipse cx="80" cy="50" rx="9" ry="6" fill="#FFFFFF" />
+            <circle cx="80" cy="50" r="3.5" fill="#FFFFFF" />
           </svg>
         </div>
 
-        {/* Galaxy 2: Edge-on Needle Galaxy / Sombrero Style (Mid-Left) */}
+        {/* Galaxy 2: Sombrero Edge-On Galaxy with Equatorial Dust Lane (Mid-Left near Works) */}
         <div 
-          className="absolute top-[64%] left-[20%] pointer-events-none opacity-30 select-none"
-          title="Edge-on Lenticular Galaxy"
+          className="absolute top-[48%] left-[4%] pointer-events-none select-none z-0"
+          style={{ filter: 'drop-shadow(0 0 14px rgba(255, 255, 255, 0.3))' }}
         >
-          <svg viewBox="0 0 90 30" className="w-8 h-3 sm:w-10 sm:h-3.5 rotate-42 filter blur-[0.2px]">
+          <svg viewBox="0 0 160 60" className="w-28 sm:w-40 h-14 sm:h-18 rotate-35 opacity-75 sm:opacity-80">
             <defs>
-              <linearGradient id="gal2-disk" x1="0%" y1="50%" x2="100%" y2="50%">
+              <linearGradient id="g2-disc-lane" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-                <stop offset="25%" stopColor="#FEF08A" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.8" />
-                <stop offset="75%" stopColor="#FEF08A" stopOpacity="0.3" />
+                <stop offset="20%" stopColor="#FEF08A" stopOpacity="0.45" />
+                <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.95" />
+                <stop offset="80%" stopColor="#FEF08A" stopOpacity="0.45" />
                 <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
               </linearGradient>
-            </defs>
-            {/* Slender Tapering Galactic Disk */}
-            <ellipse cx="45" cy="15" rx="42" ry="3.5" fill="url(#gal2-disk)" />
-            {/* Spherical Bulging Core */}
-            <ellipse cx="45" cy="15" rx="8" ry="7" fill="rgba(254, 240, 138, 0.65)" />
-            <circle cx="45" cy="15" r="2.2" fill="#FFFFFF" />
-            {/* Dark Equatorial Dust Lane */}
-            <line x1="18" y1="15" x2="72" y2="15" stroke="rgba(5, 5, 8, 0.7)" strokeWidth="0.8" />
-          </svg>
-        </div>
-
-        {/* Galaxy 3: Distant Elliptical Galaxy (Top Center-Right) */}
-        <div 
-          className="absolute top-[14%] right-[28%] pointer-events-none opacity-35 select-none"
-          title="Elliptical Galaxy"
-        >
-          <div 
-            className="w-5 h-3.5 rounded-full rotate-18 blur-[0.5px]"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85) 0%, rgba(254, 240, 138, 0.4) 35%, rgba(245, 243, 238, 0.15) 65%, transparent 100%)',
-            }}
-          />
-        </div>
-
-        {/* Galaxy 4: Barred Spiral Galaxy (Lower-Right) */}
-        <div 
-          className="absolute bottom-[24%] right-[14%] pointer-events-none opacity-28 select-none"
-          title="Barred Spiral Galaxy"
-        >
-          <svg viewBox="0 0 70 42" className="w-7 h-4 sm:w-8 sm:h-5 -rotate-50 filter blur-[0.3px]">
-            <defs>
-              <radialGradient id="gal4-core" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
-                <stop offset="40%" stopColor="#FEF08A" stopOpacity="0.4" />
+              <radialGradient id="g2-bulge-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                <stop offset="40%" stopColor="#FEF08A" stopOpacity="0.75" />
+                <stop offset="70%" stopColor="#F5F3EE" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#050508" stopOpacity="0" />
               </radialGradient>
             </defs>
-            {/* Outer halo */}
-            <ellipse cx="35" cy="21" rx="30" ry="12" fill="rgba(255,255,255,0.08)" />
-            {/* Central Bar */}
-            <rect x="22" y="19" width="26" height="4" rx="2" fill="rgba(254, 240, 138, 0.5)" />
-            {/* Curved Arm 1 */}
-            <path d="M 48 21 Q 58 14 62 22 Q 60 28 50 30" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-            {/* Curved Arm 2 */}
-            <path d="M 22 21 Q 12 28 8 20 Q 10 14 20 12" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-            {/* Nucleus */}
-            <ellipse cx="35" cy="21" rx="7" ry="5" fill="url(#gal4-core)" />
-            <circle cx="35" cy="21" r="1.8" fill="#FFFFFF" />
+
+            {/* Tapering Luminous Stellar Disk */}
+            <ellipse cx="80" cy="30" rx="75" ry="9" fill="url(#g2-disc-lane)" />
+
+            {/* Intense Spherical Central Bulge */}
+            <ellipse cx="80" cy="30" rx="26" ry="20" fill="url(#g2-bulge-glow)" />
+            <circle cx="80" cy="30" r="4.5" fill="#FFFFFF" />
+
+            {/* Dark Interstellar Dust Lane (Classic Sombrero silhouette) */}
+            <line x1="16" y1="31" x2="144" y2="31" stroke="#050508" strokeWidth="2.6" strokeOpacity="0.98" />
+            <line x1="28" y1="30" x2="132" y2="30" stroke="rgba(24, 25, 32, 0.9)" strokeWidth="1.4" />
           </svg>
         </div>
 
-        {/* Galaxy 5: Miniature Dwarf Companion Galaxy (Far Left) */}
+        {/* Galaxy 3: Interacting Galaxy Pair / Whirlpool Style (Upper-Right) */}
         <div 
-          className="absolute top-[44%] left-[3%] pointer-events-none opacity-25 select-none"
-          title="Dwarf Galaxy"
+          className="absolute top-[24%] right-[3%] sm:right-[5%] pointer-events-none select-none z-0"
+          style={{ filter: 'drop-shadow(0 0 15px rgba(254, 240, 138, 0.3))' }}
         >
-          <div 
-            className="w-3.5 h-2.5 rounded-full -rotate-12 blur-[0.4px]"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 0%, rgba(254, 240, 138, 0.3) 40%, transparent 100%)',
-            }}
-          />
+          <svg viewBox="0 0 150 90" className="w-28 sm:w-36 h-18 sm:h-22 -rotate-25 opacity-75 sm:opacity-85">
+            <defs>
+              <radialGradient id="g3-core" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                <stop offset="35%" stopColor="#FEF08A" stopOpacity="0.7" />
+                <stop offset="80%" stopColor="#050508" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            {/* Major Galaxy Primary Core & Arms */}
+            <ellipse cx="55" cy="45" rx="45" ry="25" fill="rgba(254, 240, 138, 0.15)" />
+            <path d="M 55 45 Q 80 25 95 38 Q 100 50 85 62 Q 65 68 45 60 Q 25 50 35 32 Q 48 20 68 25" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2.2" strokeLinecap="round" />
+            
+            {/* Gravitational Tidal Bridge connecting to Dwarf Companion */}
+            <path d="M 95 38 Q 115 35 125 45" fill="none" stroke="rgba(254, 240, 138, 0.45)" strokeWidth="1.8" strokeDasharray="3,2" />
+
+            {/* Minor Dwarf Companion Galaxy */}
+            <ellipse cx="128" cy="46" rx="14" ry="10" fill="rgba(255, 255, 255, 0.3)" />
+            <circle cx="128" cy="46" r="3" fill="#FFFFFF" opacity="0.9" />
+
+            {/* Primary Luminous Nucleus */}
+            <ellipse cx="55" cy="45" rx="16" ry="11" fill="url(#g3-core)" />
+            <circle cx="55" cy="45" r="3.5" fill="#FFFFFF" />
+          </svg>
         </div>
 
-        {/* Distant Small Moonlet (Upper Right Ambient Space) */}
+        {/* Galaxy 4: Classic Barred Spiral Galaxy (Lower-Right near Playground) */}
         <div 
-          className="absolute top-[16%] right-[22%] w-4 h-4 rounded-full pointer-events-none opacity-35 select-none"
-          style={{
-            background: 'radial-gradient(circle at 35% 35%, #4B5263 0%, #1A1D24 60%, #050608 100%)',
-            boxShadow: 'inset -1px -1px 3px rgba(0,0,0,0.9), 0 0 5px rgba(255,255,255,0.18)',
-          }}
-        />
+          className="absolute top-[76%] right-[5%] sm:right-[8%] pointer-events-none select-none z-0"
+          style={{ filter: 'drop-shadow(0 0 14px rgba(254, 240, 138, 0.3))' }}
+        >
+          <svg viewBox="0 0 140 80" className="w-26 sm:w-34 h-16 sm:h-20 -rotate-45 opacity-70 sm:opacity-80">
+            <defs>
+              <radialGradient id="g4-core" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+                <stop offset="35%" stopColor="#FEF08A" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#050508" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            {/* Diffuse Outer Halo */}
+            <ellipse cx="70" cy="40" rx="60" ry="24" fill="rgba(254, 240, 138, 0.14)" />
+
+            {/* Central Stellar Bar */}
+            <rect x="42" y="36" width="56" height="8" rx="4" fill="rgba(255, 255, 255, 0.8)" />
+            <rect x="46" y="37" width="48" height="6" rx="3" fill="rgba(254, 240, 138, 0.85)" />
+
+            {/* Arm 1 emerging from right bar tip */}
+            <path d="M 96 40 Q 118 24 126 38 Q 122 54 100 62 Q 84 64 70 54" fill="none" stroke="rgba(255, 255, 255, 0.55)" strokeWidth="2.2" strokeLinecap="round" />
+
+            {/* Arm 2 emerging from left bar tip */}
+            <path d="M 44 40 Q 22 56 14 42 Q 18 26 40 18 Q 56 16 70 26" fill="none" stroke="rgba(255, 255, 255, 0.55)" strokeWidth="2.2" strokeLinecap="round" />
+
+            {/* Intense Core Nucleus */}
+            <ellipse cx="70" cy="40" rx="15" ry="11" fill="url(#g4-core)" />
+            <circle cx="70" cy="40" r="3.2" fill="#FFFFFF" />
+          </svg>
+        </div>
 
       </div>
     </div>
