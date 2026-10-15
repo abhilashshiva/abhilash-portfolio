@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { FeaturedProjects } from '../components/FeaturedProjects';
-import { NeuralPlayground } from '../components/NeuralPlayground';
-import { AnomalyHunter } from '../components/AnomalyHunter';
+import { InteractivePlayground } from '../components/InteractivePlayground';
 import { About } from '../components/About';
 import { Experience } from '../components/Experience';
 import { Skills } from '../components/Skills';
@@ -29,8 +28,7 @@ export const HomePage: React.FC = () => {
     <main className="w-full">
       <Hero />
       <FeaturedProjects />
-      <NeuralPlayground />
-      <AnomalyHunter />
+      <InteractivePlayground />
       <About />
       <Experience />
       <Skills />

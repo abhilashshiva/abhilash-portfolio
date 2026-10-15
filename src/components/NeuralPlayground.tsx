@@ -7,7 +7,11 @@ interface Point {
   label: 0 | 1; // 0 = Cluster A (Accent), 1 = Cluster B (Purple/Cyan)
 }
 
-export const NeuralPlayground: React.FC = () => {
+interface NeuralPlaygroundProps {
+  isEmbedded?: boolean;
+}
+
+export const NeuralPlayground: React.FC<NeuralPlaygroundProps> = ({ isEmbedded = false }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [modelType, setModelType] = useState<'linear' | 'mlp'>('mlp');
   const [learningRate, setLearningRate] = useState<number>(0.05);
@@ -236,19 +240,18 @@ export const NeuralPlayground: React.FC = () => {
     setFeedback(`Reset canvas to ${type === 'clusters' ? 'Bimodal Clusters' : 'Non-Linear Concentric Rings'}.`);
   };
 
-  return (
-    <section id="interactive-lab" className="py-24 sm:py-32 relative">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
-        {/* Section Header */}
+  const content = (
+    <div className={isEmbedded ? "w-full" : "max-w-6xl mx-auto px-6 sm:px-8"}>
+      {!isEmbedded && (
         <div className="flex items-center gap-4 mb-6">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
             03 / Interactive Lab
           </span>
           <div className="h-[1px] flex-1 bg-black/[0.06] dark:bg-white/[0.06]" />
         </div>
+      )}
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-900 dark:text-[#F5F3EE]">
               Let's Play with Data &amp; Accuracy
@@ -475,8 +478,15 @@ export const NeuralPlayground: React.FC = () => {
         </div>
 
       </div>
+  );
 
-      {/* Thin Horizontal Separator */}
+  if (isEmbedded) {
+    return content;
+  }
+
+  return (
+    <section id="interactive-lab" className="py-24 sm:py-32 relative">
+      {content}
       <div className="w-full h-[1px] bg-black/[0.06] dark:bg-white/[0.06] mt-24" />
     </section>
   );

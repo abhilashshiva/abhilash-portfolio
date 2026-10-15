@@ -10,7 +10,11 @@ interface StreamPoint {
   missed: boolean;
 }
 
-export const AnomalyHunter: React.FC = () => {
+interface AnomalyHunterProps {
+  isEmbedded?: boolean;
+}
+
+export const AnomalyHunter: React.FC<AnomalyHunterProps> = ({ isEmbedded = false }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [score, setScore] = useState<number>(0);
@@ -272,19 +276,18 @@ export const AnomalyHunter: React.FC = () => {
     }
   };
 
-  return (
-    <section id="anomaly-hunter" className="py-20 sm:py-28 relative">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        
-        {/* Section Header */}
+  const content = (
+    <div className={isEmbedded ? "w-full" : "max-w-6xl mx-auto px-6 sm:px-8"}>
+      {!isEmbedded && (
         <div className="flex items-center gap-4 mb-6">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
             04 / Interactive Mini-Game
           </span>
           <div className="h-[1px] flex-1 bg-black/[0.06] dark:bg-white/[0.06]" />
         </div>
+      )}
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-900 dark:text-[#F5F3EE]">
               DataStream Anomaly Hunter
@@ -460,8 +463,15 @@ export const AnomalyHunter: React.FC = () => {
         </div>
 
       </div>
+  );
 
-      {/* Thin Horizontal Separator */}
+  if (isEmbedded) {
+    return content;
+  }
+
+  return (
+    <section id="anomaly-hunter" className="py-20 sm:py-28 relative">
+      {content}
       <div className="w-full h-[1px] bg-black/[0.06] dark:bg-white/[0.06] mt-24" />
     </section>
   );
