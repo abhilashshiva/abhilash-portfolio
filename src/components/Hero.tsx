@@ -1,7 +1,7 @@
 import { ArrowRight, Download, Mail, Sparkles, Terminal } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { HeroConsole } from './HeroConsole';
+import { DataAnalyticsDashboard } from './DataAnalyticsDashboard';
 
 export const Hero: React.FC = () => {
   return (
@@ -110,9 +110,9 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Systems Terminal Console */}
+          {/* Right Column: Live Data Analytics & Telemetry Dashboard */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-6 lg:pt-0">
-            <HeroConsole />
+            <DataAnalyticsDashboard />
           </div>
         </div>
 
