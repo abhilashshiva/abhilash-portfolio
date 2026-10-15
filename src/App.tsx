@@ -15,15 +15,17 @@ export const App: React.FC = () => {
         <div className="relative min-h-screen flex flex-col bg-light-bg dark:bg-[#050508] text-light-text dark:text-dark-text transition-colors duration-300">
           <SpaceBackground />
           <InteractiveCursor />
-          <Navbar />
-          <div className="flex-1">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/project/:id" element={<ProjectDetailPage />} />
-              <Route path="*" element={<HomePage />} />
-            </Routes>
+          <div className="relative z-10 flex flex-col min-h-screen pointer-events-auto">
+            <Navbar />
+            <div className="flex-1">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/project/:id" element={<ProjectDetailPage />} />
+                <Route path="*" element={<HomePage />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       </BrowserRouter>
     </ThemeProvider>
