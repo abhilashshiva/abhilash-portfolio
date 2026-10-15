@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { updateBlackHolePosition } from '../utils/blackHoleCoords';
-import { Sparkles, Radio, Eye } from 'lucide-react';
+import { Sparkles, Radio } from 'lucide-react';
 
-type CosmicMode = 'blade' | 'quasar' | 'horizon';
+type CosmicMode = 'blade' | 'quasar';
 
 export const CosmicQuasar: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -80,14 +80,6 @@ export const CosmicQuasar: React.FC = () => {
       corePos: { left: '50%', top: '48%' },
       auraColor: 'rgba(245, 158, 11, 0.15)',
       jetAngle: '-48deg',
-    },
-    horizon: {
-      image: '/cosmic-ref-1.png',
-      title: 'Monochrome Horizon',
-      subtitle: 'Pure Relativistic Gravitational Curvature & Photon Arc',
-      corePos: { left: '50%', top: '46%' },
-      auraColor: 'rgba(255, 255, 255, 0.14)',
-      jetAngle: '0deg',
     },
   };
 
@@ -220,46 +212,33 @@ export const CosmicQuasar: React.FC = () => {
         <div aria-hidden="true" className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#050508] to-transparent pointer-events-none" />
       </div>
 
-      {/* Interactive Phenomenon Switcher (Explore all 4 user reference styles) */}
+      {/* Interactive Phenomenon Switcher (Singularity Blade vs Quasar Jet) */}
       <div className="mt-4 flex flex-col items-center gap-2">
-        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-neutral-900/80 dark:bg-white/[0.04] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-lg">
+        <div className="inline-flex items-center gap-1.5 p-1 rounded-full bg-neutral-900/80 dark:bg-white/[0.04] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-lg">
           <button
             type="button"
             onClick={() => setActiveMode('blade')}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
               activeMode === 'blade'
                 ? 'bg-accent text-black font-semibold shadow-sm'
                 : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
             }`}
           >
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-3.5 h-3.5" />
             <span>Singularity Blade</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveMode('quasar')}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
               activeMode === 'quasar'
                 ? 'bg-accent text-black font-semibold shadow-sm'
                 : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
             }`}
           >
-            <Radio className="w-3 h-3" />
+            <Radio className="w-3.5 h-3.5" />
             <span>Quasar Jet</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setActiveMode('horizon')}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
-              activeMode === 'horizon'
-                ? 'bg-accent text-black font-semibold shadow-sm'
-                : 'text-neutral-400 hover:text-white hover:bg-white/[0.04]'
-            }`}
-          >
-            <Eye className="w-3 h-3" />
-            <span>Monochrome Horizon</span>
           </button>
         </div>
 
