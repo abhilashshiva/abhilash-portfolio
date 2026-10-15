@@ -127,7 +127,7 @@ export const InteractiveCursor: React.FC = () => {
         ref={dotRef}
         className={`fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none transition-transform duration-75 ${
           isBentByGravity 
-            ? 'bg-accent shadow-[0_0_12px_#C9EDB9]' 
+            ? 'bg-yellow-200 shadow-[0_0_14px_#FEF08A]' 
             : isDark 
               ? 'bg-accent shadow-[0_0_6px_rgba(201,237,185,0.7)]' 
               : 'bg-emerald-600 shadow-[0_0_6px_rgba(5,150,105,0.4)]'
@@ -139,7 +139,7 @@ export const InteractiveCursor: React.FC = () => {
         ref={ringRef}
         className={`fixed top-0 left-0 rounded-full pointer-events-none transition-all duration-200 border ${
           isBentByGravity
-            ? 'w-11 h-11 border-accent/80 bg-accent/15 shadow-[0_0_24px_rgba(201,237,185,0.5)] animate-pulse'
+            ? 'w-12 h-12 border-yellow-200/90 bg-yellow-300/15 shadow-[0_0_28px_rgba(254,240,138,0.65)] animate-pulse'
             : isHoveringClickable
               ? 'w-12 h-12 border-accent/70 bg-accent/10 backdrop-blur-[1px]'
               : isDark

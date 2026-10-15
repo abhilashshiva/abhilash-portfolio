@@ -29,7 +29,7 @@ export const Hero: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
           {/* Left Column: Editorial Headline & Actions */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             {/* Name and Professional Subtitle */}
             <div className="mb-4">
               <p className="text-xs sm:text-sm font-mono tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
@@ -111,7 +111,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: Interactive Singularity Black Hole */}
-          <div className="lg:col-span-4 flex justify-center items-center pt-4 lg:pt-0">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center pt-4 lg:pt-0">
             <BlackHole />
           </div>
         </div>

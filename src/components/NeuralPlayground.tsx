@@ -252,13 +252,15 @@ export const NeuralPlayground: React.FC<NeuralPlaygroundProps> = ({ isEmbedded =
       )}
 
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div className="max-w-2xl">
+        <div className="max-w-2xl">
+          {!isEmbedded && (
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-900 dark:text-[#F5F3EE]">
               Let's Play with Data &amp; Accuracy
             </h2>
-            <p className="font-serif text-lg text-emerald-700 dark:text-accent mt-1">
-              Neural Boundary Sandbox
-            </p>
+          )}
+            <h3 className="font-serif text-2xl sm:text-3xl font-light text-emerald-700 dark:text-accent">
+              Neural Accuracy Sandbox
+            </h3>
             <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mt-2 font-sans">
               An interactive mini-lab modeling decision hyperplanes. Place custom observations, toggle model depth, train the weights, or play the classification game.
             </p>

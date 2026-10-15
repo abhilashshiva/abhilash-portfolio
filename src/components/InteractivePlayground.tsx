@@ -43,7 +43,7 @@ export const InteractivePlayground: React.FC = () => {
               }`}
             >
               <Brain className={`w-4 h-4 transition-colors ${activeGame === 'neural' ? 'text-accent' : ''}`} />
-              <span>Neural Sandbox</span>
+              <span>Accuracy Sandbox</span>
               <span className="hidden sm:inline-block text-[10px] px-2 py-0.5 rounded-full bg-accent/15 text-emerald-700 dark:text-accent font-mono font-normal">
                 ML Model
               </span>
