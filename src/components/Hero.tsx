@@ -134,7 +134,7 @@ export const Hero: React.FC = () => {
                 </span>
               </div>
               <p className="font-serif text-lg sm:text-xl text-neutral-800 dark:text-neutral-200">
-                Data Investigation &bull; Predictive Modeling &bull; Autonomous Workflows
+                Data Diagnostics &bull; GenAI Orchestration &bull; Autonomous Workflows
               </p>
             </div>
 
@@ -146,7 +146,7 @@ export const Hero: React.FC = () => {
               </div>
               <div>
                 <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Focus Area</p>
-                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">AI / ML & Data</p>
+                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">Data & AI Developer</p>
               </div>
               <div className="col-span-2 sm:col-span-1">
                 <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Status</p>

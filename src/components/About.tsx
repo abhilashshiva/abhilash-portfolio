@@ -27,7 +27,7 @@ export const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                 <p className="font-serif text-2xl font-medium tracking-tight">Abhilash Bollepalli</p>
-                <p className="text-xs text-accent font-mono">Data & AI Engineer &bull; Hyderabad, India</p>
+                <p className="text-xs text-accent font-mono">Data & AI Developer &bull; Hyderabad, India</p>
               </div>
             </div>
 

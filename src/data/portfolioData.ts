@@ -2,9 +2,9 @@ import { Project, ExperienceItem, SkillCategory, EducationItem, CertificationIte
 
 export const PERSONAL_INFO = {
   name: "Abhilash Bollepalli",
-  headline: "Data & AI Engineer",
-  positioning: "Transforming complex data into intelligent, production-ready AI systems.",
-  shortBio: "Data and AI developer turning raw data into actionable insights and robust AI-driven systems. Strong expertise in data cleaning, exploratory analysis, root-cause investigation, and engineering practical AI workflows.",
+  headline: "Data & AI Developer",
+  positioning: "Transforming raw data and telemetry into high-accuracy insights, predictive pipelines, and production GenAI systems.",
+  shortBio: "Data & AI Developer specializing in exploratory data diagnostics, automated data hygiene, and engineering production-ready GenAI architectures. Deep practical background in root-cause investigation, RAG workflows, prompt engineering, and machine learning pipelines.",
   location: "Hyderabad, Telangana, India",
   email: "abhilashshiva.b@gmail.com",
   phone: "+91 9030422529",
@@ -14,7 +14,7 @@ export const PERSONAL_INFO = {
     linkedin: "https://linkedin.com",
     email: "mailto:abhilashshiva.b@gmail.com"
   },
-  availability: "Available for Data Science & AI Engineering Roles"
+  availability: "Available for Data & AI Developer Roles"
 };
 
 export const PROJECTS: Project[] = [
@@ -202,24 +202,24 @@ export const EXPERIENCES: ExperienceItem[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: "Programming Languages",
-    skills: ["Python", "SQL", "Java", "C", "JavaScript", "HTML", "CSS"]
+    category: "Data Engineering & Analytics",
+    skills: ["Pandas", "NumPy", "SQL", "Data Scraping", "Data Cleaning", "Exploratory Data Analysis (EDA)", "Root-Cause Analysis", "Power BI", "Tableau"]
   },
   {
-    category: "Data & Analytics",
-    skills: ["Pandas", "NumPy", "Power BI", "Tableau", "Data Scraping", "Data Cleaning", "Exploratory Data Analysis (EDA)", "Root-Cause Analysis"]
+    category: "GenAI & LLM Orchestration",
+    skills: ["RAG Architectures", "Prompt Engineering", "Vector Embeddings", "AI Guardrails", "Agentic Workflows", "Model Evaluation", "Context Optimization"]
   },
   {
-    category: "AI & Machine Learning",
-    skills: ["scikit-learn", "TensorFlow", "PyTorch", "Generative AI", "AI Workflow Automation"]
+    category: "Machine Learning & Modeling",
+    skills: ["scikit-learn", "TensorFlow", "PyTorch", "Classification", "Regression", "Feature Engineering", "Clustering", "Statistical Testing"]
   },
   {
-    category: "AI Tools & LLMs",
-    skills: ["Gemini", "Claude", "ChatGPT", "Grok", "Llama AI", "Runway ML", "DeepSeek"]
+    category: "AI Tools & Models",
+    skills: ["Gemini", "Claude", "ChatGPT", "Grok", "Llama 3", "DeepSeek", "Runway ML", "Claude Code", "Google Antigravity"]
   },
   {
-    category: "Web & Cloud Infrastructure",
-    skills: ["React.js", "Node.js", "Bootstrap", "Google Cloud Platform", "Git", "Jupyter", "Unity (AR/VR)"]
+    category: "Programming & Cloud Stack",
+    skills: ["Python", "JavaScript / TypeScript", "React.js", "Node.js", "Java", "C", "Google Cloud Platform", "PostgreSQL", "Git", "Jupyter"]
   }
 ];
 

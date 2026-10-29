@@ -1,13 +1,13 @@
 import React from 'react';
 import { SKILL_CATEGORIES } from '../data/portfolioData';
-import { Code2, BarChart2, Brain, Wrench, Globe } from 'lucide-react';
+import { Code2, BarChart2, Brain, Wrench, Globe, Sparkles, Cpu } from 'lucide-react';
 
 const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  "Programming Languages": Code2,
-  "Data & Analytics": BarChart2,
-  "AI & Machine Learning": Brain,
-  "AI Tools & LLMs": Wrench,
-  "Web & Cloud Infrastructure": Globe,
+  "Data Engineering & Analytics": BarChart2,
+  "GenAI & LLM Orchestration": Sparkles,
+  "Machine Learning & Modeling": Brain,
+  "AI Tools & Models": Cpu,
+  "Programming & Cloud Stack": Code2,
 };
 
 export const Skills: React.FC = () => {
