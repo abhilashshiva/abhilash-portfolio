@@ -116,46 +116,54 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Atmospheric Hero Technical Blueprint Visual */}
-        <div className="relative w-full rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white dark:bg-[#121212] overflow-hidden p-6 sm:p-8 shadow-sm">
-          {/* Subtle grid pattern background */}
-          <div 
-            aria-hidden="true" 
-            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.07] bg-[radial-gradient(#C9EDB9_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"
-          />
-
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            {/* Visual Header / Terminal Pill */}
+        {/* Engineering Stack & Technical Focus Card */}
+        <div className="relative w-full rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white/80 dark:bg-[#0c0d12]/80 backdrop-blur-md overflow-hidden p-6 sm:p-7 shadow-sm">
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            
+            {/* Left: Core Technical Focus */}
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Terminal className="w-4 h-4 text-accent" />
                 <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
-                  Engineering Stack & Systems Architecture
+                  Core Engineering Stack &amp; Domains
                 </span>
               </div>
               <p className="font-serif text-lg sm:text-xl text-neutral-800 dark:text-neutral-200">
-                Data Diagnostics &bull; GenAI Orchestration &bull; Autonomous Workflows
+                Exploratory Data Analysis &bull; Computer Vision &bull; Production LLM Workflows
               </p>
+              
+              {/* Core Skill Chips */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                {['Python', 'Pandas', 'SQL', 'Scikit-learn', 'YOLOv8', 'FastAPI', 'React.js', 'Google Cloud'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-white/[0.05] text-neutral-700 dark:text-neutral-300 border border-black/5 dark:border-white/5"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Live Indicator Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 border-t md:border-t-0 md:border-l border-black/10 dark:border-white/10 pt-4 md:pt-0 md:pl-8">
+            {/* Right: Verified Profile Metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 border-t lg:border-t-0 lg:border-l border-black/10 dark:border-white/10 pt-4 lg:pt-0 lg:pl-8">
               <div>
                 <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Location</p>
-                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">Hyderabad, TG</p>
+                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200 mt-0.5">Hyderabad, TG</p>
               </div>
               <div>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Focus Area</p>
-                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">Data & AI Developer</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Degree &amp; Batch</p>
+                <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200 mt-0.5">B.Tech AIML '26</p>
               </div>
               <div className="col-span-2 sm:col-span-1">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Status</p>
-                <p className="text-sm font-medium text-emerald-600 dark:text-accent flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Active Build
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Availability</p>
+                <p className="text-sm font-medium text-emerald-600 dark:text-accent flex items-center gap-1.5 mt-0.5">
+                  <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
+                  Open to Roles
                 </p>
               </div>
             </div>
+
           </div>
         </div>
 

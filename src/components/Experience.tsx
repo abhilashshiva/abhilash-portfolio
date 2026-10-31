@@ -10,7 +10,7 @@ export const Experience: React.FC = () => {
         {/* Section Header */}
         <div className="flex items-center gap-4 mb-6">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-            06 / Career Timeline
+            04 / Experience
           </span>
           <div className="h-[1px] flex-1 bg-black/[0.06] dark:bg-white/[0.06]" />
         </div>
