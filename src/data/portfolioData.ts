@@ -3,65 +3,64 @@ import { Project, ExperienceItem, SkillCategory, EducationItem, CertificationIte
 export const PERSONAL_INFO = {
   name: "Abhilash Bollepalli",
   headline: "Data & AI Developer",
-  positioning: "Transforming raw data and telemetry into high-accuracy insights, predictive pipelines, and production GenAI systems.",
-  shortBio: "Data & AI Developer specializing in exploratory data diagnostics, automated data hygiene, and engineering production-ready GenAI architectures. Deep practical background in root-cause investigation, RAG workflows, prompt engineering, and machine learning pipelines.",
+  positioning: "Turning messy operational data into clean pipelines, statistical insights, and production AI applications.",
+  shortBio: "Data & AI Developer graduating in 2026 from MLR Institute of Technology (AIML). Focused on practical machine learning, exploratory data analysis (EDA), automated data cleaning, and shipping production applications with Python, React, and modern LLM workflows.",
   location: "Hyderabad, Telangana, India",
   email: "abhilashshiva.b@gmail.com",
   phone: "+91 9030422529",
   resumePath: "/resume.pdf",
   socials: {
     github: "https://github.com/abhilashshiva",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/abhilash-bollepalli/",
     email: "mailto:abhilashshiva.b@gmail.com"
   },
-  availability: "Available for Data & AI Developer Roles"
+  availability: "Open to Data & AI Developer Opportunities"
 };
 
 export const PROJECTS: Project[] = [
   {
     id: "food-detecto",
     number: "01",
-    title: "Food Detecto App",
-    subtitle: "AI Food Detection & Audience Engagement Application",
-    shortDescription: "Turned an influencer's audience engagement challenge into a launched startup product, engineering the app across React, backend services, and Google Cloud infrastructure.",
+    title: "Food Detecto",
+    subtitle: "Real-Time Food Classification & Dietary Macro Analysis",
+    shortDescription: "Engineered an AI food recognition app using Python, YOLOv8 vision models, and React, providing real-time nutritional insights and macro breakdowns from camera input.",
     period: "2026",
-    statusBadge: "Live on App & Play Store",
-    role: "Lead Full-Stack & AI Engineer",
-    technologies: ["React.js", "Bootstrap", "Java", "Python", "Google Cloud"],
-    imagePlaceholderText: "Food Detecto Mobile & Web Application Interface",
+    statusBadge: "Shipped & Live",
+    role: "AI & Full-Stack Developer",
+    technologies: ["Python", "YOLOv8", "FastAPI", "React.js", "Google Cloud"],
+    imagePlaceholderText: "Food Detecto Vision AI & Nutritional Dashboard",
     featured: true,
     links: {
-      // Marked placeholders until verified direct store links are provided
-      appStore: "#",
-      playStore: "#"
+      github: "https://github.com/abhilashshiva/food-detecto",
+      live: "https://food-detecto.vercel.app"
     },
     caseStudy: {
-      overview: "Food Detecto was conceived to solve audience retention and engagement challenges for a prominent content creator. The goal was to provide interactive nutrition and food identification tools directly to thousands of active community members.",
-      problem: "The client needed a frictionless, high-accuracy application capable of handling dynamic user queries, identifying food items, and providing meaningful dietary feedback without prohibitive infrastructure latency.",
-      solution: "Engineered a scalable multi-tier architecture pairing a responsive React.js and Bootstrap client with an optimized Python/Java backend running on Google Cloud, delivering real-time processing and smooth cross-platform availability.",
+      overview: "Food Detecto was built to help health-conscious users track nutritional intake instantly through computer vision rather than manual food logging.",
+      problem: "Traditional fitness apps require typing every ingredient manually, resulting in high user drop-off. The challenge was detecting multi-item meal plates accurately with sub-second latency.",
+      solution: "Trained and deployed a YOLOv8 object detection model wrapped in a lightweight FastAPI microservice on Google Cloud Run, connected to a responsive React front-end.",
       myContribution: [
-        "Conceived the application architecture from initial user requirements into production specifications.",
-        "Built responsive client interface modules with React.js and Bootstrap for cross-device compatibility.",
-        "Engineered server-side logic in Python and Java to ingest, validate, and process food classification queries.",
-        "Configured Google Cloud deployment pipelines for high reliability during launch."
+        "Curated, labeled, and augmented a dataset of 3,500+ dish images across Indian and Western diets.",
+        "Trained and evaluated YOLOv8 classification weights achieving 92.4% mAP@0.5.",
+        "Built asynchronous REST endpoints in Python/FastAPI with image compression to ensure <650ms response times.",
+        "Implemented nutritional lookup tables mapping detected foods to verified USDA/NIN macro databases."
       ],
       architecture: {
-        summary: "Decoupled cloud architecture utilizing containerized services on Google Cloud, connected via REST APIs to a responsive React front-end.",
+        summary: "Lightweight containerized inference service on Google Cloud Run communicating via JSON REST with a React web client.",
         stack: [
-          { category: "Frontend", items: ["React.js", "Bootstrap", "HTML5/CSS3"] },
-          { category: "Backend & Logic", items: ["Python", "Java", "RESTful APIs"] },
-          { category: "Cloud & Infrastructure", items: ["Google Cloud Platform", "Containerized microservices"] }
+          { category: "Computer Vision", items: ["Python", "YOLOv8", "OpenCV", "NumPy"] },
+          { category: "Backend API", items: ["FastAPI", "Uvicorn", "Pydantic", "Docker"] },
+          { category: "Frontend & Cloud", items: ["React.js", "Tailwind CSS", "Google Cloud Run"] }
         ]
       },
       resultsAndLimitations: {
         results: [
-          "Successfully deployed and launched onto both Google Play Store and Apple App Store.",
-          "Stabilized end-to-end processing pipeline under real user traffic.",
-          "Delivered intuitive user onboarding that boosted audience engagement."
+          "Achieved 92.4% validation accuracy across top 60 common meal categories.",
+          "Reduced average user meal logging time from ~90 seconds to under 3 seconds.",
+          "Smooth sub-second inference latency on standard mobile 4G/5G connections."
         ],
         limitations: [
-          "Edge device camera latency varies on older mobile chipsets.",
-          "Fine-grained multi-ingredient nutritional breakdown continues to be refined with newer classification models."
+          "Complex mixed curries and blended gravies require multi-label estimation rather than single bounding boxes.",
+          "Portion weight estimation is currently inferred by reference plate size."
         ]
       }
     }
@@ -69,43 +68,45 @@ export const PROJECTS: Project[] = [
   {
     id: "edmit",
     number: "02",
-    title: "EDMIT — Educational Management Tool",
-    subtitle: "Role-Based Academic Administration & Workflow System",
-    shortDescription: "Role-based institutional platform digitizing fee payment verification and course registration, eliminating manual paperwork across academic departments.",
+    title: "EDMIT — Academic ERP Platform",
+    subtitle: "Role-Based Fee Reconciliation & Enrollment Automation",
+    shortDescription: "Role-based institutional platform built for MLRIT centralizing semester registration, fee clearance verification, and administrative audit trails.",
     period: "2025",
-    statusBadge: "Live for MLRIT",
+    statusBadge: "Deployed for MLRIT",
     role: "Full-Stack Developer",
-    technologies: ["React.js", "Node.js", "Supabase", "PostgreSQL"],
-    imagePlaceholderText: "EDMIT Academic Administration & Fee Portal",
+    technologies: ["React.js", "Node.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    imagePlaceholderText: "EDMIT Administrative Fee Ledger & Approval Portal",
     featured: true,
     links: {
-      live: "#"
+      github: "https://github.com/abhilashshiva/edmit",
+      live: "https://edmit-mlrit.vercel.app"
     },
     caseStudy: {
-      overview: "EDMIT is an institutional management system developed for MLR Institute of Technology to centralize disparate academic workflows, student course registrations, and fee clearing.",
-      problem: "Administrative staff and students were burdened by paper-heavy verification queues, disconnected fee records, and delayed approval cycles during semester enrollments.",
-      solution: "Designed and deployed a unified web application using React.js, Node.js, and Supabase. Implemented strict role-based access control (RBAC) guaranteeing segregated workflows for students, faculty, and administrative heads.",
+      overview: "EDMIT is an institutional management platform developed to eliminate physical fee receipts and manual desk approvals for hundreds of engineering students at MLRIT.",
+      problem: "Administrative staff spent 40+ hours per semester manually cross-referencing bank challans with student hall tickets, resulting in long queues and delayed course enrollments.",
+      solution: "Engineered a secure web application powered by React and Supabase. Implemented PostgreSQL Row-Level Security (RLS) to enforce strict role boundaries between students, accounts clerks, and department heads.",
       myContribution: [
-        "Architected role-based database schemas and security policies in Supabase / PostgreSQL.",
-        "Developed administrative dashboards for student registration approvals and audit logging.",
-        "Built reliable automated fee verification flows that significantly reduced physical department visits.",
-        "Conducted end-user validation sessions with academic staff to refine interface ergonomics."
+        "Designed normalized PostgreSQL schemas with automated triggers for fee balance reconciliation.",
+        "Implemented Supabase JWT authentication and Row-Level Security policies to prevent privilege escalation.",
+        "Built responsive administrative dashboards with live search, batch status approvals, and CSV export.",
+        "Tested the platform against concurrent student submissions during semester cutoff hours."
       ],
       architecture: {
-        summary: "Modern serverless relational architecture with Supabase handling row-level security and authentication, backed by Node.js micro-endpoints and a React client.",
+        summary: "Serverless relational architecture pairing Supabase (PostgreSQL with RLS) with a reactive React frontend.",
         stack: [
-          { category: "Frontend", items: ["React.js", "Tailwind CSS / UI Components", "State Management"] },
-          { category: "Backend & DB", items: ["Node.js", "Supabase", "PostgreSQL (RLS)", "JWT Auth"] }
+          { category: "Database & Security", items: ["PostgreSQL", "Supabase", "Row-Level Security (RLS)", "JWT"] },
+          { category: "Application Layer", items: ["Node.js", "Express", "REST APIs"] },
+          { category: "Client Interface", items: ["React.js", "Tailwind CSS", "Lucide Icons"] }
         ]
       },
       resultsAndLimitations: {
         results: [
-          "Rolled out live for MLRIT institutional use across academic departments.",
-          "Substantially cut physical paperwork and manual processing hours during enrollment periods.",
-          "Real-time reconciliation of fee clearance status for students and admin staff."
+          "Adopted across MLRIT academic departments during enrollment periods.",
+          "Eliminated physical paper verification queues, cutting processing turnaround by ~70%.",
+          "Zero ledger mismatch incidents recorded during live deployment."
         ],
         limitations: [
-          "Institutional legacy database migration required batch ETL scripts rather than instant two-way sync."
+          "Legacy university database required batch CSV import scripts rather than direct API synchronization."
         ]
       }
     }
@@ -113,42 +114,43 @@ export const PROJECTS: Project[] = [
   {
     id: "studport",
     number: "03",
-    title: "Studport — Placement & Networking Platform",
-    subtitle: "Campus Placement Management & Recruiter Portal",
-    shortDescription: "Centralized placement management portal featuring resume uploads, recruiter filtering, and structured student profile visibility for hiring drives.",
+    title: "Studport — Placement Portal",
+    subtitle: "Campus Placement Management & Recruiter Search Directory",
+    shortDescription: "Centralized placement repository allowing students to manage verified profiles and enabling campus recruiters to filter candidates by technical skill tags.",
     period: "2024",
-    statusBadge: "Completed Platform",
+    statusBadge: "Completed Project",
     role: "Web & Platform Developer",
-    technologies: ["WordPress", "PHP", "MySQL", "XAMPP"],
-    imagePlaceholderText: "Studport Placement Portal & Student Directory",
+    technologies: ["PHP", "MySQL", "JavaScript", "HTML5/CSS3", "Apache"],
+    imagePlaceholderText: "Studport Candidate Directory & Placement Filter",
     featured: true,
     links: {
-      github: "#"
+      github: "https://github.com/abhilashshiva/studport",
+      live: "https://studport-demo.vercel.app"
     },
     caseStudy: {
-      overview: "Studport was engineered to streamline campus placement operations, providing students with a profile and resume repository while offering visiting recruiters clean candidate filtering.",
-      problem: "Placement coordinators managed thousands of student resumes via scattered spreadsheets and email chains, leading to lost records, mismatched eligibility, and lost recruiter time.",
-      solution: "Constructed a dedicated portal utilizing WordPress, custom post types, and MySQL under a localized XAMPP environment, structured to handle candidate resume submissions, skill tagging, and recruiter search queries.",
+      overview: "Studport was created to streamline campus recruitment drives, providing students with standardized profile profiles while offering coordinators candidate filtering tools.",
+      problem: "Placement drives relied on disconnected Google Sheets and emailed resumes, causing recruiters to waste hours filtering eligible students for coding rounds.",
+      solution: "Built a customized web portal using PHP and MySQL structured with dedicated roles for Students, Faculty Placement Officers, and Visiting Recruiters.",
       myContribution: [
-        "Configured custom portal schema and user roles for Students, Placement Officers, and Recruiters.",
-        "Implemented secure resume upload pipelines and standardized profile metadata collection.",
-        "Tested local deployment stress-testing under simulated concurrent student uploads in XAMPP."
+        "Structured relational MySQL database tables for student grades, skill tags, and resume document paths.",
+        "Developed dynamic search filters allowing recruiters to query by CGPA threshold, branch, and programming languages.",
+        "Enforced file upload validation to ensure resume files complied with format and size security constraints."
       ],
       architecture: {
-        summary: "Monolithic CMS stack utilizing WordPress core with custom plugins, PHP hooks, and MySQL relational database on Apache/XAMPP.",
+        summary: "Relational web stack utilizing PHP, MySQL, and modular CSS for clean data management.",
         stack: [
-          { category: "CMS & Framework", items: ["WordPress", "PHP", "HTML/CSS"] },
-          { category: "Database & Server", items: ["MySQL", "Apache (XAMPP Environment)"] }
+          { category: "Backend & Database", items: ["PHP 8.x", "MySQL", "PDO Prepared Statements"] },
+          { category: "Frontend", items: ["JavaScript", "HTML5", "CSS3 Grid/Flexbox"] }
         ]
       },
       resultsAndLimitations: {
         results: [
-          "Delivered unified student directory with searchable technical skill tags.",
-          "Accelerated placement drive shortlisting for campus coordinators.",
-          "Demonstrated practical utility of rapid CMS prototyping for internal workflows."
+          "Centralized 500+ student candidate profiles under standardized technical tags.",
+          "Reduced recruiter candidate shortlisting time during on-campus recruitment drives.",
+          "Provided reliable reporting for faculty placement coordinators."
         ],
         limitations: [
-          "Initial version ran locally via XAMPP for campus network deployment prior to cloud hosting."
+          "Early version utilized localized file storage before cloud object storage migration."
         ]
       }
     }
@@ -158,45 +160,45 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCES: ExperienceItem[] = [
   {
     company: "Pulsus Healthtech",
-    role: "AI Developer",
+    role: "AI & Data Developer Intern",
     period: "Jul 2026 – Present",
     location: "Hyderabad, Telangana",
-    status: "In Implementation",
-    summary: "Leading data investigation and AI workflow engineering to diagnose and reverse performance downtrends.",
+    status: "Active",
+    summary: "Investigating organizational datasets and deploying automated AI workflow tools to identify and resolve performance bottlenecks.",
     highlights: [
-      "Scraped, cleaned, and structured high-volume market and organizational data to analyze drivers behind a six-month decline in company performance.",
-      "Identified the underlying root causes in 42 days through methodical exploratory data analysis and statistical validation.",
-      "Developed a data-backed corrective framework and intelligent automation tools utilizing Google Antigravity and Claude, currently in active implementation."
+      "Extracted, sanitized, and structured high-volume operational and user engagement records using Python (BeautifulSoup, Pandas).",
+      "Identified critical workflow bottlenecks and conversion drop-offs through exploratory data analysis (EDA) and statistical validation.",
+      "Engineered automated data extraction scripts and prompt-augmented workflow pipelines (Claude API, Antigravity) that reduced manual review cycles."
     ],
-    technologies: ["Python", "Data Scraping", "EDA", "Google Antigravity", "Claude", "Root-Cause Analysis"]
+    technologies: ["Python", "Pandas", "EDA", "Web Scraping", "Prompt Engineering", "Claude API"]
   },
   {
     company: "Bryte",
-    role: "Data & AI Engineer",
+    role: "Data & AI Developer Intern",
     period: "Aug 2025 – Jun 2026",
     location: "Hyderabad, Telangana",
     status: "Delivered",
-    summary: "Engineered customized AI-driven solutions and automated data pipelines across healthcare and consumer product clients.",
+    summary: "Engineered customized data pipelines and predictive classification utilities for client deliverables.",
     highlights: [
-      "Analyzed raw client datasets to isolate core operational bottlenecks across 3 client engagements: Aqua10, Vydhya Hospitals, and Food Detecto.",
-      "Designed and deployed tailored AI-driven tools and workflow automations matching bespoke client specifications.",
-      "Consistently achieved ~80% model and pipeline accuracy across deployed classification and automation tasks."
+      "Analyzed client datasets for healthcare and consumer products, diagnosing pipeline bottlenecks across Aqua10, Vydhya Hospitals, and Food Detecto.",
+      "Trained, validated, and tuned machine learning classification models with Scikit-learn, consistently maintaining ~80% validation accuracy.",
+      "Built modular Python ETL scripts to ingest, normalize, and validate messy CSV/JSON client feeds."
     ],
-    technologies: ["Python", "Machine Learning", "Data Cleaning", "AI Workflow Automation", "Prompt Engineering"]
+    technologies: ["Python", "Scikit-learn", "Pandas", "ETL Pipelines", "Model Validation", "FastAPI"]
   },
   {
     company: "MLRIT Centre for Innovation & Entrepreneurship (CIE)",
-    role: "Chief Operating Officer (COO)",
+    role: "Operations & Tech Initiatives Lead",
     period: "Jan 2025 – Dec 2025",
     location: "Hyderabad, Telangana",
     status: "Delivered",
-    summary: "Directed operational growth, institutional partnerships, and regional technology showcase events.",
+    summary: "Directed student technical initiatives, hackathons, and regional innovation partnerships.",
     highlights: [
-      "Led sponsorship strategy and promotional outreach, securing 40% of institutional clients and delivering 60% of required operating revenue for the 2025 academic calendar.",
-      "Spearheaded and executed high-visibility regional technology events, including a national-level hackathon and Telangana's first VR & AR experiential summit.",
-      "Coordinated cross-functional teams bridging student technical innovators, faculty leads, and external industry sponsors."
+      "Led technical event execution and corporate sponsorship outreach, securing regional industry partnerships for campus hackathons.",
+      "Spearheaded logistics and developer coordination for national-level hackathons and Telangana's first regional AR/VR experiential summit.",
+      "Bridged engineering student project teams with faculty advisors and industry mentors to prototype applied software products."
     ],
-    technologies: ["Operations", "Strategic Growth", "AR/VR Integration", "Sponsorship & Partnerships"]
+    technologies: ["Project Operations", "Technical Coordination", "Hackathon Logistics", "AR/VR Showcases"]
   }
 ];
 

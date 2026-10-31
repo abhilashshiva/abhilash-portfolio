@@ -69,22 +69,22 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 space-y-10">
             <div className="space-y-4">
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-neutral-900 dark:text-[#F5F3EE] leading-[1.15]">
-                Bridging data diagnostics with production-grade intelligence.
+                Empirical data investigation meets practical AI engineering.
               </h2>
               <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
-                My approach to software engineering centers on empirical clarity. Rather than treating AI as an isolated experiment, I investigate raw operational data to locate exact points of failure, uncover business bottlenecks, and architect systems that solve them systematically.
+                I believe effective AI starts with clean data. Rather than jumping straight to complex models or hype, I dig into the raw records, uncover where pipeline bottlenecks and anomalies live, and build reliable software that solves real problems.
               </p>
             </div>
 
             <div className="space-y-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
               <p>
-                At <span className="font-semibold text-neutral-900 dark:text-neutral-200">Pulsus Healthtech</span>, I investigated a six-month decline in organizational performance, scraping and structuring complex datasets to identify the core root cause within 42 days. That analysis was turned into custom automated corrective tools using modern AI environments, which are actively in implementation.
+                At <span className="font-semibold text-neutral-900 dark:text-neutral-200">Pulsus Healthtech</span>, I investigated multi-channel operational datasets to isolate core conversion drop-offs, extracting and structuring customer feedback and workflow metrics. That analysis directly informed custom automated reporting tools using Python, Claude, and Antigravity.
               </p>
               <p>
-                During my tenure at <span className="font-semibold text-neutral-900 dark:text-neutral-200">Bryte</span>, I designed and delivered bespoke AI utilities for clients across healthcare and consumer products—consistently tuning automation pipelines and classification models to achieve ~80% operational precision.
+                During my internship at <span className="font-semibold text-neutral-900 dark:text-neutral-200">Bryte</span>, I built customized machine learning classification pipelines and data-cleansing scripts for client applications across healthcare and consumer products—consistently maintaining ~80% validation precision.
               </p>
               <p>
-                Earlier, serving as Chief Operating Officer for the <span className="font-semibold text-neutral-900 dark:text-neutral-200">MLRIT Centre for Innovation & Entrepreneurship</span>, I directed regional technology operations, secured 60% of annual operating revenue through client sponsorships, and organized flagship initiatives including Telangana’s first VR & AR event.
+                At the <span className="font-semibold text-neutral-900 dark:text-neutral-200">MLRIT Centre for Innovation &amp; Entrepreneurship (CIE)</span>, I led student technical initiatives, hackathons, and regional innovation partnerships, bringing together student engineering teams and industry mentors to prototype applied software products.
               </p>
             </div>
 

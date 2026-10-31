@@ -160,6 +160,7 @@ export const Contact: React.FC = () => {
                     id="name"
                     type="text"
                     required
+                    maxLength={80}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
@@ -183,6 +184,7 @@ export const Contact: React.FC = () => {
                     id="email"
                     type="email"
                     required
+                    maxLength={100}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@example.com"
@@ -206,6 +208,7 @@ export const Contact: React.FC = () => {
                     id="message"
                     rows={5}
                     required
+                    maxLength={2000}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your initiative or query..."

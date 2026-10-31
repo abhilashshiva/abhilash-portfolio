@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { BarChart2, Activity, Cpu } from 'lucide-react';
+import { BarChart2, Activity, Cpu, Code2 } from 'lucide-react';
 import { DataAnalyticsGame } from './DataAnalyticsGame';
 import { AnomalyHunter } from './AnomalyHunter';
 import { GenAILabGame } from './GenAILabGame';
+import { CodeInspector } from './CodeInspector';
 
-type ActiveGame = 'analytics' | 'streaming' | 'genai';
+type ActiveGame = 'analytics' | 'streaming' | 'genai' | 'code';
 
 export const InteractivePlayground: React.FC = () => {
   const [activeGame, setActiveGame] = useState<ActiveGame>('analytics');
@@ -16,7 +17,7 @@ export const InteractivePlayground: React.FC = () => {
         {/* Section Header */}
         <div className="flex items-center gap-4 mb-6">
           <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-            03 / Interactive Lab
+            03 / Interactive Lab &amp; Code Arena
           </span>
           <div className="h-[1px] flex-1 bg-black/[0.06] dark:bg-white/[0.06]" />
         </div>
@@ -27,11 +28,11 @@ export const InteractivePlayground: React.FC = () => {
             Data &amp; AI Engineering Arena
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-2 font-sans leading-relaxed">
-            Hands-on technical simulations evaluating automated data hygiene, real-time telemetry streaming, and enterprise GenAI guardrail evaluation.
+            Hands-on technical simulations evaluating automated data hygiene, real-time telemetry streaming, enterprise GenAI guardrail evaluation, and production Python code architecture.
           </p>
         </div>
 
-        {/* Centered Game Option Switcher */}
+        {/* Centered Switcher */}
         <div className="flex justify-center items-center mb-10">
           <div className="flex flex-wrap items-center justify-center p-1.5 rounded-2xl bg-neutral-100 dark:bg-[#121319] border border-black/10 dark:border-white/10 shadow-lg backdrop-blur-md gap-1">
             
@@ -39,7 +40,7 @@ export const InteractivePlayground: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveGame('analytics')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
                 activeGame === 'analytics'
                   ? 'bg-white dark:bg-[#1e2029] text-neutral-900 dark:text-white shadow-md border border-black/5 dark:border-white/10 font-semibold scale-[1.02]'
                   : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
@@ -56,7 +57,7 @@ export const InteractivePlayground: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveGame('streaming')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
                 activeGame === 'streaming'
                   ? 'bg-white dark:bg-[#1e2029] text-neutral-900 dark:text-white shadow-md border border-black/5 dark:border-white/10 font-semibold scale-[1.02]'
                   : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
@@ -73,7 +74,7 @@ export const InteractivePlayground: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveGame('genai')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
                 activeGame === 'genai'
                   ? 'bg-white dark:bg-[#1e2029] text-neutral-900 dark:text-white shadow-md border border-black/5 dark:border-white/10 font-semibold scale-[1.02]'
                   : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
@@ -82,14 +83,31 @@ export const InteractivePlayground: React.FC = () => {
               <Cpu className={`w-3.5 h-3.5 transition-colors ${activeGame === 'genai' ? 'text-purple-400' : ''}`} />
               <span>GenAI Guardrails</span>
               <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 font-mono font-medium">
-                LLM / AI
+                LLM / RAG
+              </span>
+            </button>
+
+            {/* 4. Code Inspector */}
+            <button
+              type="button"
+              onClick={() => setActiveGame('code')}
+              className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 ${
+                activeGame === 'code'
+                  ? 'bg-white dark:bg-[#1e2029] text-neutral-900 dark:text-white shadow-md border border-black/5 dark:border-white/10 font-semibold scale-[1.02]'
+                  : 'text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
+              }`}
+            >
+              <Code2 className={`w-3.5 h-3.5 transition-colors ${activeGame === 'code' ? 'text-accent' : ''}`} />
+              <span>Code Inspector</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-accent/20 text-emerald-800 dark:text-accent font-mono font-medium">
+                Python / ML
               </span>
             </button>
 
           </div>
         </div>
 
-        {/* Active Game Canvas Container */}
+        {/* Active Container */}
         <div className="relative transition-all duration-300">
           {activeGame === 'analytics' && (
             <div className="animate-fade-in">
@@ -106,6 +124,12 @@ export const InteractivePlayground: React.FC = () => {
           {activeGame === 'genai' && (
             <div className="animate-fade-in">
               <GenAILabGame />
+            </div>
+          )}
+
+          {activeGame === 'code' && (
+            <div className="animate-fade-in">
+              <CodeInspector />
             </div>
           )}
         </div>

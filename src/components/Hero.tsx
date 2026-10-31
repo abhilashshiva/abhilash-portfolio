@@ -40,11 +40,11 @@ export const Hero: React.FC = () => {
             {/* Oversized Editorial Serif Headline */}
             <div className="max-w-4xl mb-8">
               <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] tracking-tight leading-[1.14] font-light text-neutral-900 dark:text-[#F5F3EE]">
-                Engineering intelligent systems <br className="hidden sm:inline" />
-                <span className="text-neutral-500 dark:text-neutral-400">from complex </span>
-                <span className="text-emerald-700 dark:text-accent font-normal italic">data</span>{' '}
-                <span className="text-neutral-500 dark:text-neutral-400">to </span>
-                <span className="text-emerald-700 dark:text-accent font-normal italic">production AI & automation.</span>
+                Turning raw data <br className="hidden sm:inline" />
+                <span className="text-neutral-500 dark:text-neutral-400">into </span>
+                <span className="text-emerald-700 dark:text-accent font-normal italic">actionable models</span>{' '}
+                <span className="text-neutral-500 dark:text-neutral-400">&amp; </span>
+                <span className="text-emerald-700 dark:text-accent font-normal italic">production AI apps.</span>
               </h1>
             </div>
 
